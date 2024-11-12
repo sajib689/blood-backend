@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createUserToDb } from "./user.service";
+import { createUserToDb, getUsersFromDb } from "./user.service";
 
 export const createUser = async (res: Response, req: Request) => {
     const data = req.body
@@ -8,4 +8,9 @@ export const createUser = async (res: Response, req: Request) => {
         status: 'success',
         data: user
     })
+}
+
+export const getUsers = async (req: Request, res: Response) => {
+    const users = await getUsersFromDb()
+    res.status(200).json({users})
 }
