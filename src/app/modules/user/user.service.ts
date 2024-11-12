@@ -6,3 +6,8 @@ export const createUserToDb = async (payload: IUser): Promise <IUser> => {
     await user.save()
     return user
 }
+
+export const getUsersFromDb = async () => {
+    const user = await User.find()
+    return user
+}
