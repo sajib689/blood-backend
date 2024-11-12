@@ -6,3 +6,8 @@ export const createContactToDb = async (payload: IContact): Promise<IContact> =>
     await contact.save()
     return contact
 }
+
+export const getContactFromDb = async () => {
+    const contact = await Contact.find()
+    return contact
+}
