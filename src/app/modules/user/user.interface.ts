@@ -2,7 +2,6 @@ export interface IUser {
     name: string;
     bloodGroup: string;
     role: string;
-    password: string;
     dateOfBirth: string;
     gender: 'male' | 'female';
     email: string;

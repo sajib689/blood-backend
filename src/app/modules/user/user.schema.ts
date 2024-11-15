@@ -13,10 +13,6 @@ export const userSchema = new Schema <IUser>({
     role: {
         type: "string",
     },
-    password: {
-        type: "string",
-        required: true,
-    },
     dateOfBirth: {
         type: "string",
         required: true,
