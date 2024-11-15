@@ -1,45 +1,22 @@
 import { Schema } from "mongoose";
 import { IUser } from "./user.interface";
 
-export const userSchema = new Schema <IUser>({
-    name: {
-        type: "string",
-        required: true,
+export const userSchema = new Schema<IUser>(
+  {
+    name: { type: String},
+    bloodGroup: { 
+      type: String, 
+      enum: ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"], 
+   
     },
-    bloodGroup: {
-        type: "string",
-        required: true,
-    },
-    role: {
-        type: "string",
-    },
-    dateOfBirth: {
-        type: "string",
-        required: true,
-    },
-    gender: {
-        type: "string",
-        enum: ["male", "female"],
-        required: true,
-    },
-    email: {
-        type: "string",
-        required: true,
-    },
-    contactNumber: {
-        type: "string",
-        required: true,
-    },
-    emergencyContactNumber: {
-        type: "string",
-        required: true,
-    },
-    presentAddress: {
-        type: "string",
-        required: true,
-    },
-    permanentAddress: {
-        type: "string",
-        required: true,
-    }
-})
+    role: { type: String, default: "member" },
+    dateOfBirth: { type: String },
+    gender: { type: String, enum: ["male", "female"]},
+    email: { type: String, unique: true },
+    contactNumber: { type: String },
+    emergencyContactNumber: { type: String },
+    presentAddress: { type: String },
+    permanentAddress: { type: String},
+  },
+  { timestamps: true }
+);
