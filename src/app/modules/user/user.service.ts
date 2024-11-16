@@ -11,7 +11,10 @@ export const createUserToDb = async (payload: IUser): Promise<IUser> => {
       throw error; 
     }
   };
-  
+
+export const findUserByEmail = async (email: string) => {
+  return await User.findOne({ email: email });
+}
 
 export const getUsersFromDb = async () => {
     const user = await User.find()
